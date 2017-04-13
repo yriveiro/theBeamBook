@@ -1,15 +1,27 @@
+[![Build Status](https://travis-ci.org/happi/theBeamBook.svg?branch=master)](https://travis-ci.org/happi/theBeamBook)
+
 # Hi
 
-Hi I opened this repo to the public today (April 7) to share it with some students. I was giving a lecture about the BEAM at Chalmers. I didn't think anyone else would notice. I was not planning to release this for real yet since the repo currently just contains bits and pieces from several different versions of the book that I have been writing.
+I opened this repo to the public today (April 7) to share it with
+some students. I was giving a lecture about the BEAM at Chalmers. I
+didn't think anyone else would notice. I was not planning to release
+this for real yet since the repo currently just contains bits and
+pieces from several different versions of the book that I have been
+writing.
 
-I hope to bring in more chapters and fill out the existing chapters in the weeks to come, but please feel free to comment and correct any errors you find. The plan is to make this into a collaborate effort so that we can get a complete documentation of the Erlang Runtime system as soon as possible.
+I hope to bring in more chapters and fill out the existing chapters in
+the weeks to come, but please feel free to comment and correct any
+errors you find. The plan is to make this into a collaborate effort so
+that we can get a complete documentation of the Erlang Runtime system
+as soon as possible.
 
 Anyway, it is finally out in the public, warts and all.
 
 Welcome to the site, please contribute.
 
 # About this book
-A description of the Erlang Runtime System ERTS and the virtual Machine BEAM.
+A description of the Erlang Runtime System ERTS and the virtual
+Machine BEAM.
 
 This is an attempt to document how the internals of the Erlang Runtime
 System work.
@@ -28,39 +40,51 @@ stable release](https://github.com/happi/theBeamBook/releases/latest).
 Alternatively you can create your own PDF from the source code
 following the instructions below.
 
-## Building on Linux
+## Building from source
 
-To build a PDF version of the book from source, simply run:
+### Docker
 
-```shell
-make
-```
-Since the above command requires a number of dependencies (including
-erlang, asciidoc and dblatex), a Docker image containing everything
+A Docker image containing everything
 which is needed to build the book from source is provided. To use it:
 
 ```shell
 docker pull robertoaloi/docker-thebeambook:latest
-docker run -v $PWD:/book robertoaloi/docker-thebeambook make
+docker run -v $PWD:/book -t robertoaloi/docker-thebeambook make
 ```
 
-## Building on Mac OSX
+### Linux
 
-1. Install [MacTex](http://www.tug.org/mactex/). Note that you would need to _full_ MacTex rather than just BasicTex.
+```shell
+make
+```
+
+### Mac OSX
+
+1. Install [MacTex](http://www.tug.org/mactex/). Note that you would
+   need to _full_ MacTex rather than just BasicTex.
 1. Add `/Library/TeX/texbin` to your `PATH`.
 1. `easy_install dblatex`
+1. Install [asciidoc](http://asciidoc.org/INSTALL.html)
+1. Install [shaape](https://github.com/christiangoltz/shaape)
+1. Install [source-highlight](https://www.gnu.org/software/src-highlite/)
+1. Install [wget](https://www.gnu.org/software/wget/)
 1. `make`
 
- # TODO
- * Bring in missing chapters [Happi]
- * Bring in missing text in the process and scheduler chapters [Happi]
- * Fix the mess caused by mergin two different versions into the first chapters [Happi]
- * Go over the new outline [Happi]
- * Fix links
- * Add images
- * Fix build system for ascii-art
- * Links to OTP code on github
- * Add some kind of forum/wiki to discuss what needs to be done
- * Fix the gdb examples to use the "new" gdb macros provided by OTP.
- * Index
- 
+### Mac OSX (using brew)
+
+1. `brew install Caskroom/cask/mactex`
+1. Add `/Library/TeX/texbin` to your `PATH`.
+1. `sudo easy_install dblatex`
+1. `brew install asciidoc`
+1. `brew install pygtk py2cairo pango`
+1. `pip install shaape`
+1. `brew install source-highlight`
+1. `brew install wget`
+1. `make`
+
+## License
+
+_The Erlang Runtime System_ by Erik Stenman is licensed under a
+Creative Commons Attribution 4.0 International License. Based on a
+work at https://github.com/happi/theBeamBook.
+A complete copy of the license can be found [here](LICENSE).
