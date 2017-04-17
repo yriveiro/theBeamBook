@@ -34,6 +34,7 @@ adocs = book.asciidoc \
 	code/memory_chapter/src/lb.erl \
 	code/memory_chapter/src/send.erl \
 	code/memory_chapter/src/share.erl \
+	code/processes_chapter/src/msg.erl \
 	images/observer_applications.png \
 	images/observer_code_server.png \
 	images/observer_load.jpg \
@@ -67,4 +68,4 @@ genop.tab:
 	touch $@
 
 clean:
-	rm -f beam-book.pdf site/index.html
+	rm -f beam-book.pdf site/index.html site/*.png site/*.md5 xml/*.png xml/*.md5 xml/beam-book-from-ab.xml
